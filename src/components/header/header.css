@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5em;
+}
+
+.topnav {
+  width: -webkit-fill-available;
+}
+.topnav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.button_container {
+  button {
+    cursor: pointer;
+    border-radius: 0.5em;
+    border-width: 0;
+    padding: 0.7em;
+  }
+}

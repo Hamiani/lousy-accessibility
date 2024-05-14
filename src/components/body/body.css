@@ -1,0 +1,89 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+}
+.left {
+  width: 80%;
+}
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3em;
+}
+.article {
+  text-align: justify;
+  padding-right: 3em;
+}
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 15em;
+  width: 20%;
+}
+.section {
+  width: 60%;
+}
+.palette {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  background-color: white;
+  border-radius: 1em;
+  padding: 1em;
+}
+.score {
+  height: 200px;
+  width: 200px;
+  background-color: #bbb;
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: white;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+.fonts {
+  h3 {
+    color: black;
+    font-family: Roboto;
+    margin: 0;
+  }
+  .elements {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    gap: 0.3em;
+    span {
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+}
+
+.sizes {
+  h3 {
+    color: black;
+    font-family: Roboto;
+    margin: 0;
+  }
+  .elements {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    gap: 0.3em;
+    span {
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+}
+
+.blur {
+  h3 {
+    color: black;
+    font-family: Roboto;
+    margin: 0;
+  }
+}
