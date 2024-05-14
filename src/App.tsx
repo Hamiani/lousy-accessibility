@@ -39,10 +39,15 @@ const App = () => {
         backgroundColor: background,
         color: textColor,
         fontFamily: typography,
-        fontSize: size
+        fontSize: size,
       }}
     >
-      <Header textColor={textColor} blurValue={blurValue} />
+      <Header
+        textColor={textColor}
+        blurValue={blurValue}
+        typography={typography}
+        size={size}
+      />
       <Body
         {...{
           setSize,
@@ -53,7 +58,7 @@ const App = () => {
           score,
           size,
           typography,
-          blurValue
+          blurValue,
         }}
       />
       <Footer blurValue={blurValue} />
