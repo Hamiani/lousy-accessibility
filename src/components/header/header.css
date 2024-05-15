@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 5em;
+  gap: 3em;
 }
 
 .topnav {

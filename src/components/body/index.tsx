@@ -1,5 +1,6 @@
 import { Button, ColorPicker, Tag, Slider, Row, Col } from "antd";
 import { IoIosColorPalette } from "react-icons/io";
+import { useMediaQuery } from "react-responsive";
 
 import "./body.css";
 import {
@@ -23,6 +24,7 @@ const comonStyle = (typography: string, size: string) => ({
   fontFamily: typography,
   fontSize: size,
 });
+
 const Body = ({
   setBackround,
   setTypography,
@@ -44,6 +46,8 @@ const Body = ({
   setSize: (val: string) => void;
   setBlurValue: (val: number) => void;
 }) => {
+  const isMobile = useMediaQuery({ maxWidth: 425 });
+
   return (
     <main>
       <Row justify={"space-between"} align={"middle"}>
@@ -52,8 +56,8 @@ const Body = ({
             <Row justify={"space-between"} align={"middle"}>
               <Col xl={8} xxl={8}>
                 <img
-                  width={400}
-                  height={400}
+                  width={isMobile ? 300 : 400}
+                  height={isMobile ? 300 : 400}
                   src="https://wemanity.com/img/technological-capabilities/TechCapabilities-header-desktop.svg"
                   alt="Illustration graphique représentant des personnes qui développent des programmes informatique"
                 />
@@ -92,9 +96,8 @@ const Body = ({
               <Col xl={8} xxl={8}>
                 <iframe
                   allowFullScreen
-                  allowTransparency
-                  height="300"
-                  width="450"
+                  height={isMobile ? 250 : 300}
+                  width={isMobile ? 320 : 400}
                   src="https://www.youtube.com/embed/il_t1WVLNxk"
                   title="Amazon Interview Questions - 1 | GeeksforGeeks"
                 ></iframe>

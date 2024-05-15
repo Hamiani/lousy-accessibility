@@ -1,4 +1,5 @@
 .App {
   padding: 3em 3em 0.5em 3em;
   min-height: 100vh;
+  width: fit-content;
 }
