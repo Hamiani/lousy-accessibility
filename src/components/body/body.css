@@ -16,7 +16,7 @@
 .aside {
   display: flex;
   flex-direction: column;
-  gap: 10em;
+  gap: 6em;
 }
 .palette {
   display: flex;

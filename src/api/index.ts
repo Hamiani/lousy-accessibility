@@ -1,17 +1,32 @@
 import { BASE_URL } from "../constants";
 
-export const checkAccessibility = async (colors: string[]) =>
-  await fetch(BASE_URL, {
-    mode: "cors",
-    method: "POST",
-    body: JSON.stringify({ colors }),
-  }).then((response) => response.json());
+export const checkAccessibility = async (params: any) =>
+  await fetch(
+    BASE_URL +
+      "?" +
+      new URLSearchParams({ fcolor: params.fcolor, bcolor: params.bcolor }) +
+      "&api",
+    {
+      mode: "cors",
+      method: "GET",
+    }
+  )
+    .then((response) => response.json())
+    .then(({ ratio, ...data }) => ({
+      ratio: parseFloat(ratio).toPrecision(2),
+      status: {
+        ...data,
+      },
+    }));
 
 export type ApiResponse = {
-  small: string;
-  bold: string;
-  large: string;
-  overall: string;
-  contrast: string;
+  ratio: string;
+  status: ScoreStatus;
 };
 
+export type ScoreStatus = {
+  AA: string;
+  AALarge: string;
+  AAA: string;
+  AAALarge: string;
+};
