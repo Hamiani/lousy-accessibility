@@ -1,0 +1,14 @@
+.history {
+  width: 85%;
+  .ant-steps-item-icon {
+    width: 60px !important;
+    .ant-steps-icon {
+      top: 10px !important;
+      font-weight: 600;
+    }
+  }
+  .ant-steps-item-tail {
+    inset-inline-start: 30px !important;
+    background-color: black !important;
+  }
+}

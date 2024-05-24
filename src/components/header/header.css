@@ -3,6 +3,16 @@
   justify-content: space-evenly;
   align-items: center;
   gap: 3em;
+  position: fixed;
+  width: -webkit-fill-available;
+  padding-right: 1em;
+  height: 80px;
+  background: #ffffff;
+  z-index: 99;
+  margin-top: 0px;
+  border-color: rgb(255, 255, 255);
+  padding-left: 2em;
+  padding-top: 1em;
 }
 
 .topnav {
@@ -16,11 +26,6 @@
   font-size: 17px;
 }
 
-.button_container {
-  button {
-    cursor: pointer;
-    border-radius: 0.5em;
-    border-width: 0;
-    padding: 0.7em;
-  }
+.ant-modal .ant-modal-content {
+  padding: 0;
 }

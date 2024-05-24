@@ -1,4 +1,4 @@
-import Body from "./components/body";
+import Home from "./components/home";
 import Header from "./components/header";
 import "./App.css";
 import Footer from "./components/footer";
@@ -7,20 +7,25 @@ import {
   CAPITALIZE_FIRST_LETTER,
   DEFAULT_BACKGROUND_COLOR,
   DEFAULT_TEXT_COLOR,
-  DEFAULT_TEXT_SIZE,
+  SIZE_100,
 } from "./constants";
 import { checkAccessibility, ApiResponse } from "./api";
+import History from "./components/history";
+import RemoteControl from "./components/remoteControl";
+import Team from "./components/team";
+import Services from "./components/services";
 
 export type Size = {
   h1: string;
   h2: string;
+  h3: string;
   text: string;
 };
 const App = () => {
   const [background, setBackround] = useState(DEFAULT_BACKGROUND_COLOR);
   const [textColor, setTextColor] = useState(DEFAULT_TEXT_COLOR);
   const [typography, setTypography] = useState("Roboto");
-  const [size, setSize] = useState(DEFAULT_TEXT_SIZE);
+  const [size, setSize] = useState(SIZE_100);
   const [score, setScore] = useState<ApiResponse>({} as ApiResponse);
   const [blurValue, setBlurValue] = useState(0);
   const [textCase, setTextCase] = useState(CAPITALIZE_FIRST_LETTER);
@@ -54,21 +59,66 @@ const App = () => {
         size={size}
         textCase={textCase}
       />
-      <Body
-        {...{
-          setSize,
-          setTypography,
-          setBackround,
-          setTextColor,
-          setBlurValue,
-          setTextCase,
-          textCase,
-          score,
-          size,
-          typography,
-          blurValue,
-        }}
-      />
+      <div className="content">
+        <Home
+          {...{
+            setSize,
+            setTypography,
+            setBackround,
+            setTextColor,
+            setBlurValue,
+            setTextCase,
+            textCase,
+            score,
+            size,
+            typography,
+            blurValue,
+          }}
+        />
+        <RemoteControl
+          {...{
+            setSize,
+            setTypography,
+            setBackround,
+            setTextColor,
+            setBlurValue,
+            setTextCase,
+            textCase,
+            score,
+            size,
+            typography,
+            blurValue,
+          }}
+        />
+        <History
+          {...{
+            textCase,
+            size,
+            typography,
+            blurValue,
+            textColor,
+          }}
+        />
+        <Team
+          {...{
+            textCase,
+            size,
+            typography,
+            blurValue,
+            textColor,
+          }}
+        />
+        <Services
+          {...{
+            textCase,
+            size,
+            typography,
+            blurValue,
+            textColor,
+          }}
+        />
+      </div>
+
       <Footer blurValue={blurValue} textCase={textCase} />
     </div>
   );

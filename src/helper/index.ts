@@ -1,7 +1,7 @@
 import { CAPITALIZE_FIRST_LETTER, LOWERCASE, UPPERCASE } from "../constants";
 
 export const capitalizeFirstLetter = (value: string) =>
-  value.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase());
+  value.replace(/(?<=(?:^|[.?!])\W*)[a-z]/g, (m) => m.toUpperCase());
 
 export const toUppercase = (value: string) => value.toUpperCase();
 
