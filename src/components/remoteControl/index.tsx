@@ -51,10 +51,6 @@ const scoreColor = (score: ScoreStatus) => {
   }
   return PASS.COLOR;
 };
-const comonStyle = (typography: string, size: string) => ({
-  fontFamily: typography,
-  fontSize: size,
-});
 
 const Score = ({ score }: { score: ApiResponse }) => {
   return (
