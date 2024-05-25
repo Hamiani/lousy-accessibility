@@ -1,40 +1,26 @@
 import { Row, Col } from "antd";
 import { useMediaQuery } from "react-responsive";
 
-import { ApiResponse } from "../../api";
 import { handleCases } from "../../helper";
 import "./home.css";
-import { Size } from "../../App";
+import { useContext } from "react";
+import { ThemeContext } from "../../context";
 
 const comonStyle = (typography: string, size: string) => ({
   fontFamily: typography,
   fontSize: size,
 });
 
-const Body = ({
-  textCase,
-  size,
-  typography,
-  blurValue,
-}: {
-  score: ApiResponse;
-  typography: string;
-  size: Size;
-  blurValue: number;
-  textCase: string;
-  setTextColor: (val: string) => void;
-  setTextCase: (val: string) => void;
-  setBackround: (val: string) => void;
-  setTypography: (val: string) => void;
-  setSize: (val: Size) => void;
-  setBlurValue: (val: number) => void;
-}) => {
+const Body = () => {
+  const context = useContext(ThemeContext);
+  const { state } = context;
+  const { blurValue, textCase, typography, size } = state;
   const isMobile = useMediaQuery({ maxWidth: 1024 });
 
   return (
-    <div id="home" style={{ filter: `blur(${blurValue}px)` }} className="home">
+    <div style={{ filter: `blur(${blurValue}px)` }} className="content home">
       <Row justify={"start"} align={"middle"}>
-        <Col xs={24} sm={24} md={8} lg={6} xl={8} xxl={6}>
+        <Col xs={24} sm={24} md={8} lg={6} xl={8} xxl={8}>
           <img
             width={isMobile ? 200 : 400}
             height={isMobile ? 200 : 400}
@@ -42,7 +28,7 @@ const Body = ({
             alt="Illustration graphique représentant des personnes qui développent des programmes informatique"
           />
         </Col>
-        <Col xs={24} sm={24} md={24} lg={15} xl={13} xxl={18}>
+        <Col xs={24} sm={24} md={24} lg={15} xl={13} xxl={14}>
           <section>
             <h1 style={comonStyle(typography, size.h1)}>
               {handleCases(textCase, "Bienvenue sur notre page !")}
@@ -112,17 +98,17 @@ const Body = ({
           </section>
         </Col>
       </Row>
-      <Row justify={"space-between"} align={"middle"}>
-        <Col xs={24} sm={24} md={8} lg={6} xl={8} xxl={6}>
+      <Row justify={"start"} align={"middle"}>
+        <Col xs={24} sm={24} md={8} lg={6} xl={8} xxl={8}>
           <iframe
             allowFullScreen
-            height={isMobile ? 250 : 400}
-            width={isMobile ? 250 : 400}
+            height={isMobile ? 300 : 400}
+            width={isMobile ? 300 : 400}
             src="https://www.youtube.com/embed/gOcsgyZXQlE"
             title="La Table ronde Décathlon x Wemanity "
           ></iframe>
         </Col>
-        <Col xs={24} sm={24} md={24} lg={17} xl={16} xxl={18}>
+        <Col xs={24} sm={24} md={24} lg={24} xl={13} xxl={14}>
           <section>
             <h1 style={comonStyle(typography, size.h1)}>
               {handleCases(textCase, "La Table ronde Décathlon x Wemanity ")}

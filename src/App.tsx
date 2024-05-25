@@ -1,47 +1,43 @@
-import Home from "./components/home";
-import Header from "./components/header";
-import "./App.css";
-import Footer from "./components/footer";
-import { useEffect, useState } from "react";
-import {
-  CAPITALIZE_FIRST_LETTER,
-  DEFAULT_BACKGROUND_COLOR,
-  DEFAULT_TEXT_COLOR,
-  SIZE_100,
-} from "./constants";
-import { checkAccessibility, ApiResponse } from "./api";
-import History from "./components/history";
+/* eslint-disable react-hooks/exhaustive-deps */
+
+import { useContext, useEffect } from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Col, Row } from "antd";
+
 import RemoteControl from "./components/remoteControl";
 import Team from "./components/team";
 import Services from "./components/services";
+import Home from "./components/home";
+import History from "./components/history";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import Career from "./components/career";
 
-export type Size = {
-  h1: string;
-  h2: string;
-  h3: string;
-  text: string;
-};
+import { State, ThemeContext } from "./context";
+import { checkAccessibility, ApiResponse } from "./api";
+
+import "./App.css";
+
 const App = () => {
-  const [background, setBackround] = useState(DEFAULT_BACKGROUND_COLOR);
-  const [textColor, setTextColor] = useState(DEFAULT_TEXT_COLOR);
-  const [typography, setTypography] = useState("Roboto");
-  const [size, setSize] = useState(SIZE_100);
-  const [score, setScore] = useState<ApiResponse>({} as ApiResponse);
-  const [blurValue, setBlurValue] = useState(0);
-  const [textCase, setTextCase] = useState(CAPITALIZE_FIRST_LETTER);
+  const { state, setState } = useContext(ThemeContext);
+  const { background, textColor, typography, size } = state;
 
   useEffect(() => {
     checkAccessibility({
       fcolor: textColor.replace("#", ""),
       bcolor: background.replace("#", ""),
     })
-      .then((data: ApiResponse) => setScore(data))
+      .then((data: ApiResponse) =>
+        // @ts-ignore
+        setState((val: State) => ({ ...val, score: data }))
+      )
       .catch(() => {
         console.log(
           "une erreur est produite lors de la vérification de contrast"
         );
       });
   }, [background, textColor]);
+
   return (
     <div
       className="App"
@@ -52,74 +48,24 @@ const App = () => {
         fontSize: size.text,
       }}
     >
-      <Header
-        textColor={textColor}
-        blurValue={blurValue}
-        typography={typography}
-        size={size}
-        textCase={textCase}
-      />
-      <div className="content">
-        <Home
-          {...{
-            setSize,
-            setTypography,
-            setBackround,
-            setTextColor,
-            setBlurValue,
-            setTextCase,
-            textCase,
-            score,
-            size,
-            typography,
-            blurValue,
-          }}
-        />
-        <RemoteControl
-          {...{
-            setSize,
-            setTypography,
-            setBackround,
-            setTextColor,
-            setBlurValue,
-            setTextCase,
-            textCase,
-            score,
-            size,
-            typography,
-            blurValue,
-          }}
-        />
-        <History
-          {...{
-            textCase,
-            size,
-            typography,
-            blurValue,
-            textColor,
-          }}
-        />
-        <Team
-          {...{
-            textCase,
-            size,
-            typography,
-            blurValue,
-            textColor,
-          }}
-        />
-        <Services
-          {...{
-            textCase,
-            size,
-            typography,
-            blurValue,
-            textColor,
-          }}
-        />
-      </div>
-
-      <Footer blurValue={blurValue} textCase={textCase} />
+      <Row justify="space-between">
+        <Col xs={24} lg={21} xl={22} xxl={21}>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/career" element={<Career />} />
+              <Route path="/services" element={<Services />} />
+            </Routes>
+          </BrowserRouter>
+        </Col>
+        <Col xs={24} lg={4} xl={4} xxl={4}>
+          <RemoteControl />
+        </Col>
+      </Row>
+      <Footer />
     </div>
   );
 };

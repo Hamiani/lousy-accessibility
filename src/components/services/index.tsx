@@ -1,21 +1,17 @@
+import { useContext, useState } from "react";
 import { Card, Col, Row } from "antd";
-import "./services.css";
-import { Size } from "../../App";
-import { handleCases } from "../../helper";
 
-const Services = ({
-  textColor,
-  blurValue,
-  typography,
-  textCase,
-  size,
-}: {
-  textColor: string;
-  blurValue: number;
-  textCase: string;
-  typography: string;
-  size: Size;
-}) => {
+import {
+  createDynamicObject,
+  decreaseBrightness,
+  handleCases,
+} from "../../helper";
+import { ThemeContext } from "../../context";
+
+import "./services.css";
+import { useMediaQuery } from "react-responsive";
+
+const Services = () => {
   const commonStyle = (
     textColor: string,
     size: string,
@@ -25,75 +21,123 @@ const Services = ({
     fontSize: size,
     fontFamily: typography,
   });
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const context = useContext(ThemeContext);
+  const [hover, setHovered] = useState(createDynamicObject());
 
+  const { state } = context;
+  const { blurValue, textCase, typography, size, textColor, background } =
+    state;
+
+  const cardStyle = (id: number) => ({
+    backgroundColor: hover[id]
+      ? decreaseBrightness(background, 10)
+      : background,
+    borderColor: hover[id] ? decreaseBrightness(background, 10) : background,
+    boxShadow: `8px 5px 5px ${decreaseBrightness(background, 10)}`,
+  });
+
+  const onMouseEnter = (id: number) => setHovered(createDynamicObject(id));
+  const onMouseLeave = () => setHovered(createDynamicObject());
   return (
-    <div id="services" style={{ filter: `blur(${blurValue}px)` }}>
-      <h1
-        style={{
-          ...commonStyle(textColor, size.h1, typography),
-          textAlign: "center",
-        }}
-      >
-        {handleCases(textCase, "No Offres")}
-      </h1>
-      <p style={commonStyle(textColor, size.text, typography)}>
-        {handleCases(
-          textCase,
-          `Dans un contexte de changement permanent, nous vous aidons à vous
+    <div className="content services" style={{ filter: `blur(${blurValue}px)` }}>
+      <Row justify={"space-between"} align={"middle"}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12}>
+          <h1
+            style={{
+              ...commonStyle(textColor, size.h1, typography),
+              textAlign: "center",
+            }}
+          >
+            {handleCases(textCase, "Nos Offres")}
+          </h1>
+          <p
+            style={{
+              ...commonStyle(textColor, size.text, typography),
+              textAlign: "justify",
+            }}
+          >
+            {handleCases(
+              textCase,
+              `Dans un contexte de changement permanent, nous vous aidons à vous
         adapter et à maximiser la valeur apportée à vos clients. Véritables
         artisans de la transformation, nous vous aidons à tous les niveaux de
         l’entreprise à faire de la coopération, de l’innovation et de l’agilité
         vos armes de demain.`
-        )}
-      </p>
-      <h3 style={{ ...commonStyle(textColor, size.h3, typography) }}>
-        {handleCases(
-          textCase,
-          `DÉCOUVREZ NOS EXPERTISES CLÉS POUR MENER VOTRE TRANSFORMATION DE BOUT EN
-        BOUT`
-        )}
-      </h3>
-      <p style={commonStyle(textColor, size.text, typography)}>
-        {handleCases(
-          textCase,
-          ` Wemanity est un écosystème d’innovation, spécialiste de la
+            )}
+          </p>
+          <h3 style={{ ...commonStyle(textColor, size.h3, typography) }}>
+            {handleCases(
+              textCase,
+              `découvrez nos expertises clés pour mener votre transformation de bout en bout`
+            )}
+          </h3>
+          <p
+            style={{
+              ...commonStyle(textColor, size.text, typography),
+              textAlign: "justify",
+            }}
+          >
+            {handleCases(
+              textCase,
+              ` Wemanity est un écosystème d’innovation, spécialiste de la
         transformation des organisations.`
-        )}
-      </p>
-      <p style={commonStyle(textColor, size.text, typography)}>
-        {handleCases(
-          textCase,
-          `Notre mission ? Défiez les limites de la performance ! Accélérer votre
+            )}
+          </p>
+          <p
+            style={{
+              ...commonStyle(textColor, size.text, typography),
+              textAlign: "justify",
+            }}
+          >
+            {handleCases(
+              textCase,
+              `Notre mission ? Défiez les limites de la performance ! Accélérer votre
         progression de manière durable et créer de la valeur pour vos clients.`
-        )}
-      </p>
-      <p style={commonStyle(textColor, size.text, typography)}>
-        {handleCases(
-          textCase,
-          `Nous vous accompagnons à chaque étape de votre chaîne de valeur et à
+            )}
+          </p>
+          <p
+            style={{
+              ...commonStyle(textColor, size.text, typography),
+              textAlign: "justify",
+            }}
+          >
+            {handleCases(
+              textCase,
+              `Nous vous accompagnons à chaque étape de votre chaîne de valeur et à
         différents niveaux de votre organisation : ExCo, management et équipes.`
-        )}
-      </p>
-      <p style={commonStyle(textColor, size.text, typography)}>
-        {handleCases(
-          textCase,
-          `Pour ce faire, nous rassemblons des expertises complémentaires au sein
+            )}
+          </p>
+          <p
+            style={{
+              ...commonStyle(textColor, size.text, typography),
+              textAlign: "justify",
+            }}
+          >
+            {handleCases(
+              textCase,
+              `Pour ce faire, nous rassemblons des expertises complémentaires au sein
         d’une même équipe, coopérant efficacement grâce à une culture, des
         outils et des méthodes partagés.`
-        )}
-      </p>
-      <Row
-        justify={"space-between"}
-        gutter={[48, 16]}
-        style={{
-          marginLeft: "8em",
-          marginRight: "15em",
-        }}
-        align={"middle"}
-      >
-        <Col span={8}>
+            )}
+          </p>
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={10}>
+          <img
+            width={isMobile ? 300 : 500}
+            height={isMobile ? 300 : 500}
+            alt="Illustration graphique représentant les membres d'une équipe qui analysent des données et qui résolvent des problèmes"
+            src="https://wemanity.com/img/activities/illustration-header-our-activities.svg"
+          />
+        </Col>
+      </Row>
+      <Row justify={"space-between"} gutter={[48, 16]} align={"middle"}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={8}>
           <Card
             hoverable
+            onMouseEnter={() => onMouseEnter(1)}
+            onMouseLeave={() => onMouseLeave()}
+            style={cardStyle(1)}
             cover={
               <img
                 height={150}
@@ -103,17 +147,17 @@ const Services = ({
               />
             }
           >
-            <h1
+            <h3
               style={{
-                ...commonStyle(textColor, size.h1, typography),
+                ...commonStyle(textColor, size.h3, typography),
                 textAlign: "center",
               }}
             >
               {handleCases(textCase, `Transformation, stratégie & change`)}
-            </h1>
-            <h3
+            </h3>
+            <p
               style={{
-                ...commonStyle(textColor, size.h3, typography),
+                ...commonStyle(textColor, size.text, typography),
                 textAlign: "justify",
               }}
             >
@@ -123,12 +167,15 @@ const Services = ({
               équipes pluridisciplinaires et à notre approche globale, associant
               des assets à une expertise inégalée en agilité.`
               )}
-            </h3>
+            </p>
           </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={8}>
           <Card
             hoverable
+            onMouseEnter={() => onMouseEnter(2)}
+            onMouseLeave={() => onMouseLeave()}
+            style={cardStyle(2)}
             cover={
               <img
                 height={150}
@@ -138,17 +185,17 @@ const Services = ({
               />
             }
           >
-            <h1
+            <h3
               style={{
-                ...commonStyle(textColor, size.h1, typography),
+                ...commonStyle(textColor, size.h3, typography),
                 textAlign: "center",
               }}
             >
               {handleCases(textCase, `Agile IT, architecture & API`)}
-            </h1>
-            <h3
+            </h3>
+            <p
               style={{
-                ...commonStyle(textColor, size.h3, typography),
+                ...commonStyle(textColor, size.text, typography),
                 textAlign: "justify",
               }}
             >
@@ -158,12 +205,15 @@ const Services = ({
               business et construire un système d’information composable,
               ouvert, solide et frugal.`
               )}
-            </h3>
+            </p>
           </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={8}>
           <Card
             hoverable
+            onMouseEnter={() => onMouseEnter(3)}
+            onMouseLeave={() => onMouseLeave()}
+            style={cardStyle(3)}
             cover={
               <img
                 height={150}
@@ -173,26 +223,29 @@ const Services = ({
               />
             }
           >
-            <h1
+            <h3
               style={{
-                ...commonStyle(textColor, size.h1, typography),
+                ...commonStyle(textColor, size.h3, typography),
                 textAlign: "center",
               }}
             >
               {handleCases(textCase, `Data & IA`)}
-            </h1>
-            <h3 style={{ ...commonStyle(textColor, size.h3, typography) }}>
+            </h3>
+            <p style={{ ...commonStyle(textColor, size.text, typography) }}>
               {handleCases(
                 textCase,
                 `Booster votre business à travers une utilisation stratégique et
               pérenne de vos données, axée sur l’approche client.`
               )}
-            </h3>
+            </p>
           </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={8}>
           <Card
             hoverable
+            onMouseEnter={() => onMouseEnter(4)}
+            onMouseLeave={() => onMouseLeave()}
+            style={cardStyle(4)}
             cover={
               <img
                 height={150}
@@ -202,9 +255,9 @@ const Services = ({
               />
             }
           >
-            <h1
+            <h3
               style={{
-                ...commonStyle(textColor, size.h1, typography),
+                ...commonStyle(textColor, size.h3, typography),
                 textAlign: "center",
               }}
             >
@@ -212,10 +265,10 @@ const Services = ({
                 textCase,
                 `Digital delivery & expérience utilisateur`
               )}
-            </h1>
-            <h3
+            </h3>
+            <p
               style={{
-                ...commonStyle(textColor, size.h3, typography),
+                ...commonStyle(textColor, size.text, typography),
                 textAlign: "justify",
               }}
             >
@@ -224,11 +277,14 @@ const Services = ({
                 `Concevoir et délivrer des produits digitaux innovants, adaptés aux
               usages de vos clients grâce à nos équipes pluridisciplinaires.`
               )}
-            </h3>
+            </p>
           </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={8}>
           <Card
+            onMouseEnter={() => onMouseEnter(5)}
+            onMouseLeave={() => onMouseLeave()}
+            style={cardStyle(5)}
             hoverable
             cover={
               <img
@@ -239,18 +295,18 @@ const Services = ({
               />
             }
           >
-            <h1
+            <h3
               style={{
-                ...commonStyle(textColor, size.h1, typography),
+                ...commonStyle(textColor, size.h3, typography),
                 textAlign: "center",
               }}
             >
               {" "}
               Centre de formation
-            </h1>
-            <h3
+            </h3>
+            <p
               style={{
-                ...commonStyle(textColor, size.h3, typography),
+                ...commonStyle(textColor, size.text, typography),
                 textAlign: "justify",
               }}
             >
@@ -260,12 +316,15 @@ const Services = ({
               sur-mesure pour ancrer les nouvelles compétences et les nouvelles
               formes de leadership.`
               )}
-            </h3>
+            </p>
           </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={8}>
           <Card
+            onMouseEnter={() => onMouseEnter(6)}
+            onMouseLeave={() => onMouseLeave()}
             hoverable
+            style={cardStyle(6)}
             cover={
               <img
                 height={150}
@@ -275,17 +334,17 @@ const Services = ({
               />
             }
           >
-            <h1
+            <h3
               style={{
-                ...commonStyle(textColor, size.h1, typography),
+                ...commonStyle(textColor, size.h3, typography),
                 textAlign: "center",
               }}
             >
               {handleCases(textCase, `Sustainable shift`)}
-            </h1>
-            <h3
+            </h3>
+            <p
               style={{
-                ...commonStyle(textColor, size.h3, typography),
+                ...commonStyle(textColor, size.text, typography),
                 textAlign: "justify",
               }}
             >
@@ -297,7 +356,7 @@ const Services = ({
               cette démarche vers la durabilité à travers l’engagement, la
               techforgood et l’Agile.`
               )}
-            </h3>
+            </p>
           </Card>
         </Col>
       </Row>

@@ -19,7 +19,8 @@ import {
 } from "../../constants";
 import { ApiResponse, ScoreStatus } from "../../api";
 import "./remoteControl.css";
-import { Size } from "../../App";
+import { useContext } from "react";
+import { Size, ThemeContext } from "../../context";
 
 const { PASS, FAIL } = ACCESSIBILITY_STATUS;
 const {
@@ -271,46 +272,35 @@ const ColorPallet = ({
   );
 };
 
-const RemoteControl = ({
-  setBackround,
-  setTypography,
-  setTextColor,
-  setSize,
-  setBlurValue,
-  setTextCase,
-  textCase,
-  score,
-  size,
-  typography,
-  blurValue,
-}: {
-  score: ApiResponse;
-  typography: string;
-  size: Size;
-  blurValue: number;
-  textCase: string;
-  setTextColor: (val: string) => void;
-  setTextCase: (val: string) => void;
-  setBackround: (val: string) => void;
-  setTypography: (val: string) => void;
-  setSize: (val: Size) => void;
-  setBlurValue: (val: number) => void;
-}) => {
+const RemoteControl = () => {
+  const { state, setState } = useContext(ThemeContext);
+  const { score, size, typography, textCase } = state;
   return (
     <aside className="aside">
       <Score score={score} />
       <div className="palette">
-        <FontController setTypography={setTypography} typography={typography} />
-        <SizeController setSize={setSize} size={size} />
-        <BlurController setBlurValue={setBlurValue} />
-        <CaseController setTextCase={setTextCase} textCase={textCase} />
+        <FontController
+          setTypography={(val) => setState({ ...state, typography: val })}
+          typography={typography}
+        />
+        <SizeController
+          setSize={(val) => setState({ ...state, size: val })}
+          size={size}
+        />
+        <BlurController
+          setBlurValue={(val) => setState({ ...state, blurValue: val })}
+        />
+        <CaseController
+          setTextCase={(val) => setState({ ...state, textCase: val })}
+          textCase={textCase}
+        />
         <ColorPallet
-          onChange={setTextColor}
+          onChange={(val) => setState({ ...state, textColor: val })}
           defaultValue={DEFAULT_TEXT_COLOR}
           title="Couleur du Text"
         />
         <ColorPallet
-          onChange={setBackround}
+          onChange={(val) => setState({ ...state, background: val })}
           defaultValue={DEFAULT_BACKGROUND_COLOR}
           title="Fond d'écran"
         />

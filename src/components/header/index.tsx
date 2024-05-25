@@ -1,60 +1,31 @@
-import { Size } from "../../App";
-import logo from "../../assets/logo-outline-vertical-bleucorpo.png";
-import { handleCases } from "../../helper";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import "./header.css";
-import { useState } from "react";
 
-const commonStyle = (textColor: string, size: string) => ({
-  color: textColor,
-  fontSize: size,
-});
+import { useContext, useState } from "react";
+import { ThemeContext } from "../../context";
+import { Link } from "react-router-dom";
 
-const Header = ({
-  textColor,
-  blurValue,
-  typography,
-  textCase,
-  size,
-}: {
-  textColor: string;
-  blurValue: number;
-  textCase: string;
-  typography: string;
-  size: Size;
-}) => {
+const Headers = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const context = useContext(ThemeContext);
+  const {
+    state: { blurValue },
+  } = context;
   return (
     <>
       <header className="header" style={{ filter: `blur(${blurValue}px)` }}>
-        <img src={logo} width={100} height={80} alt="le logo de wemanity" />
+        <img
+          src={"https://wemanity.com/img/menu/logo-wemanity-home-page.png"}
+          alt="le logo de wemanity"
+        />
         <nav className="topnav">
-          <a href="#home" style={commonStyle(textColor, size.text)}>
-            {handleCases(textCase, "acceuil")}
-          </a>
-          <a href="#history" style={commonStyle(textColor, size.text)}>
-            {handleCases(textCase, "notre histoire")}
-          </a>
-          <a href="#services" style={commonStyle(textColor, size.text)}>
-            {handleCases(textCase, "nos services")}
-          </a>
-          <a href="#team" style={commonStyle(textColor, size.text)}>
-            {handleCases(textCase, "notre équipe")}
-          </a>
+          <Link to="/">Acceuil</Link>
+          <Link to="/history">Notre histoire</Link>
+          <Link to="/services">Nos services</Link>
+          <Link to="/team">Notre équipe</Link>
+          <Link to="/career">Site carrière </Link>
         </nav>
-        <Button
-          style={{
-            fontFamily: typography,
-            fontSize: size.text,
-          }}
-          onClick={(e) => {
-            e.stopPropagation();
-            console.log(" aaaaaaaaa:>> ");
-            setIsOpen(true);
-          }}
-        >
-          contact
-        </Button>
+        <button onClick={() => setIsOpen(true)}>contact</button>
       </header>
       <Modal
         centered
@@ -66,7 +37,7 @@ const Header = ({
       >
         <iframe
           width={"100%"}
-          height={"700"}
+          height={"850"}
           src="https://careers.wemanity.com/fr/contact"
           title="Présentation de l'équipe lilloise par practice "
           loading="lazy"
@@ -76,4 +47,4 @@ const Header = ({
   );
 };
 
-export default Header;
+export default Headers;

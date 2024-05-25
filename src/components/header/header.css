@@ -5,14 +5,27 @@
   gap: 3em;
   position: fixed;
   width: -webkit-fill-available;
-  padding-right: 1em;
-  height: 80px;
-  background: #ffffff;
+  padding-right: 2em;
+  height: 90px;
+  background: rgb(255, 255, 255);
   z-index: 99;
-  margin-top: 0px;
   border-color: rgb(255, 255, 255);
-  padding-left: 2em;
+  padding-left: 5em;
   padding-top: 1em;
+  transform: translateY(0px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  img {
+    height: 36px;
+    width: 130px;
+  }
+  button {
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 1em;
+  }
 }
 
 .topnav {
@@ -23,7 +36,8 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 18px;
+  color: black;
 }
 
 .ant-modal .ant-modal-content {

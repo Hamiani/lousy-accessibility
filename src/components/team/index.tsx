@@ -1,6 +1,6 @@
-import { Col, Row } from "antd";
-import { Size } from "../../App";
 import { handleCases } from "../../helper";
+import { ThemeContext } from "../../context";
+import { useContext } from "react";
 
 const commonStyle = (textColor: string, size: string, typography: string) => ({
   color: textColor,
@@ -8,21 +8,12 @@ const commonStyle = (textColor: string, size: string, typography: string) => ({
   fontFamily: typography,
 });
 
-const Team = ({
-  textColor,
-  blurValue,
-  typography,
-  textCase,
-  size,
-}: {
-  textColor: string;
-  blurValue: number;
-  textCase: string;
-  typography: string;
-  size: Size;
-}) => {
+const Team = () => {
+  const context = useContext(ThemeContext);
+  const { state } = context;
+  const { blurValue, textCase, typography, size, textColor } = state;
   return (
-    <div style={{ filter: `blur(${blurValue}px)` }}>
+    <div className="content" style={{ filter: `blur(${blurValue}px)` }}>
       <h1
         style={{
           ...commonStyle(textColor, size.h1, typography),
@@ -39,17 +30,15 @@ const Team = ({
       >
         {handleCases(textCase, "Mot de passe : ")}Lille2018 🔓
       </p>
-      <Row id="team" justify={"center"}>
-        <Col span={20}>
-          <iframe
-            width={"90%"}
-            height={"700"}
-            src="https://view.genially.com/65797d850938f90014a7b6b8"
-            title="Présentation de l'équipe lilloise par practice "
-            loading="lazy"
-          />
-        </Col>
-      </Row>
+
+      <iframe
+        width={"100%"}
+        style={{ borderRadius: "15px" }}
+        height={"700"}
+        src="https://view.genially.com/65797d850938f90014a7b6b8"
+        title="Présentation de l'équipe lilloise par practice "
+        loading="lazy"
+      />
     </div>
   );
 };

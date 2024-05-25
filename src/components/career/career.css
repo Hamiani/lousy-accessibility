@@ -1,0 +1,18 @@
+.career {
+  padding-left: 9vw !important;
+  .ant-card {
+    min-height: 300px;
+    border-radius: 20px;
+  }
+}
+.office-picture {
+  border-radius: 1.5em;
+  height: 100%;
+  width: 100%;
+}
+.pt-2 {
+  padding-top: 2em;
+}
+.center {
+  text-align: center;
+}

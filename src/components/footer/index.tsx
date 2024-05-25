@@ -1,12 +1,11 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../context";
 import { handleCases } from "../../helper";
 import "./footer.css";
-const Footer = ({
-  blurValue,
-  textCase,
-}: {
-  textCase: string;
-  blurValue: number;
-}) => {
+const Footer = () => {
+  const context = useContext(ThemeContext);
+  const { state } = context;
+  const { blurValue, textCase } = state;
   return (
     <footer className="footer" style={{ filter: `blur(${blurValue}px)` }}>
       <p>
