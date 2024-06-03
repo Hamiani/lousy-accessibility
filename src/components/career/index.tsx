@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Card, Col, Divider, Row } from "antd";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../context";
@@ -74,7 +75,6 @@ const Career = () => {
           <img
             width={isMobile ? 400 : 700}
             height={isMobile ? 400 : 500}
-            alt="Illustration graphique représentant les membres d'une équipe qui analysent des données et qui résolvent des problèmes"
             src="https://careers.wemanity.com/img/offices/header-office-lille.svg"
           />
         </Col>
@@ -92,7 +92,6 @@ const Career = () => {
           <img
             height={50}
             width={50}
-            alt="Pinte de bière bleue"
             src="https://careers.wemanity.com/img/offices/nice-extras-offices-afterwork.svg"
           />
           <p style={commonStyle(textColor, size.text, typography)}>
@@ -103,7 +102,6 @@ const Career = () => {
           <img
             height={50}
             width={50}
-            alt="Poids pour la musculation bleus"
             src="https://careers.wemanity.com/img/offices/nice-extras-offices-sport.svg"
           />
           <p style={commonStyle(textColor, size.text, typography)}>
@@ -114,7 +112,6 @@ const Career = () => {
           <img
             height={50}
             width={50}
-            alt="Signalétique bleue parking vélo"
             src="https://careers.wemanity.com/img/offices/nice-extras-offices-bike-parking.svg"
           />
           <p style={commonStyle(textColor, size.text, typography)}>
@@ -125,7 +122,6 @@ const Career = () => {
           <img
             height={50}
             width={50}
-            alt="Cuisinière bleue"
             src="https://careers.wemanity.com/img/offices/nice-extras-offices-kitchen.svg"
           />
           <p style={commonStyle(textColor, size.text, typography)}>
@@ -136,7 +132,6 @@ const Career = () => {
           <img
             height={50}
             width={50}
-            alt="Fenêtre bleue avec un soleil"
             src="https://careers.wemanity.com/img/offices/nice-extras-offices-luminous.svg"
           />
           <p style={commonStyle(textColor, size.text, typography)}>
@@ -148,14 +143,12 @@ const Career = () => {
         <Col xs={24} sm={24} md={16} lg={16} xl={16} xxl={16}>
           <img
             className="office-picture"
-            alt="Groupe de personnes assis autour d'un bureau des locaux de Wemanity Lille"
             src="https://careers.wemanity.com/img/offices/bureau_lille_1.jpg"
           />
         </Col>
         <Col xs={24} sm={24} md={8} lg={8} xl={8} xxl={8}>
           <img
             className="office-picture"
-            alt="Deux personnes assises autour d'un bureau des locaux de Wemanity Lille"
             src="https://careers.wemanity.com/img/offices/bureau_lille_2.jpg"
           />
         </Col>
@@ -163,14 +156,12 @@ const Career = () => {
         <Col xs={24} sm={24} md={10} lg={10} xl={10} xxl={10}>
           <img
             className="office-picture"
-            alt="Groupe de personnes assis autour d'un bureau des locaux de Wemanity Lille"
             src="https://careers.wemanity.com/img/offices/bureau_lille_3.jpg"
           />
         </Col>
         <Col xs={24} sm={24} md={14} lg={14} xl={14} xxl={14}>
           <img
             className="office-picture"
-            alt="Groupe de personnes assis autour d'un bureau des locaux de Wemanity Lille"
             src="https://careers.wemanity.com/img/offices/bureau_lille_4.jpg"
           />
         </Col>

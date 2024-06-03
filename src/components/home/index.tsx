@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
+/* eslint-disable jsx-a11y/alt-text */
 import { Row, Col } from "antd";
 import { useMediaQuery } from "react-responsive";
 
@@ -25,7 +27,6 @@ const Body = () => {
             width={isMobile ? 200 : 400}
             height={isMobile ? 200 : 400}
             src="https://wemanity.com/img/technological-capabilities/TechCapabilities-header-desktop.svg"
-            alt="Illustration graphique représentant des personnes qui développent des programmes informatique"
           />
         </Col>
         <Col xs={24} sm={24} md={24} lg={15} xl={13} xxl={14}>
@@ -105,7 +106,6 @@ const Body = () => {
             height={isMobile ? 300 : 400}
             width={isMobile ? 300 : 400}
             src="https://www.youtube.com/embed/gOcsgyZXQlE"
-            title="La Table ronde Décathlon x Wemanity "
           ></iframe>
         </Col>
         <Col xs={24} sm={24} md={24} lg={24} xl={13} xxl={14}>

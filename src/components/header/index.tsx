@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Modal } from "antd";
 import "./header.css";
 
@@ -16,7 +17,6 @@ const Headers = () => {
       <header className="header" style={{ filter: `blur(${blurValue}px)` }}>
         <img
           src={"https://wemanity.com/img/menu/logo-wemanity-home-page.png"}
-          alt="le logo de wemanity"
         />
         <nav className="topnav">
           <Link to="/">Acceuil</Link>

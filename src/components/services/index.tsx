@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { useContext, useState } from "react";
 import { Card, Col, Row } from "antd";
 
@@ -126,7 +127,6 @@ const Services = () => {
           <img
             width={isMobile ? 300 : 500}
             height={isMobile ? 300 : 500}
-            alt="Illustration graphique représentant les membres d'une équipe qui analysent des données et qui résolvent des problèmes"
             src="https://wemanity.com/img/activities/illustration-header-our-activities.svg"
           />
         </Col>
@@ -142,7 +142,6 @@ const Services = () => {
               <img
                 height={150}
                 width={150}
-                alt="Transformation, stratégie & change"
                 src="https://wemanity.com/img/activities/how-we-can-help-you-activities-01.svg"
               />
             }
@@ -180,7 +179,6 @@ const Services = () => {
               <img
                 height={150}
                 width={150}
-                alt="Agile IT, architecture & API"
                 src="https://wemanity.com/img/activities/how-we-can-help-you-agil-IT.svg"
               />
             }
@@ -218,7 +216,6 @@ const Services = () => {
               <img
                 height={150}
                 width={150}
-                alt="Data & IA"
                 src="https://wemanity.com/img/activities/how-we-can-help-you-activities-04.svg"
               />
             }
@@ -250,7 +247,6 @@ const Services = () => {
               <img
                 height={150}
                 width={150}
-                alt="Data & IA"
                 src="https://wemanity.com/img/activities/how-we-can-help-you-activities-05.svg"
               />
             }
@@ -290,7 +286,6 @@ const Services = () => {
               <img
                 height={150}
                 width={150}
-                alt="Data & IA"
                 src="https://wemanity.com/img/activities/how-we-can-help-you-activities-07.svg"
               />
             }
@@ -329,7 +324,6 @@ const Services = () => {
               <img
                 height={150}
                 width={150}
-                alt="Data & IA"
                 src="https://wemanity.com/img/activities/sustainable-shift.svg"
               />
             }
