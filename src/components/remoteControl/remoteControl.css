@@ -1,7 +1,7 @@
 .aside {
   position: fixed;
   right: 30px;
-  top: 150px;
+  top: 105px;
   z-index: 9;
   width: 220px;
   display: flex;
@@ -28,12 +28,12 @@
 .palette {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 0.2em;
   background-color: white;
   border-radius: 1em;
   padding: 1em;
   font-size: 16px;
-  margin-top: 1em;
+  margin-top: 0.3em;
 }
 
 .fonts {

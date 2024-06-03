@@ -3,48 +3,48 @@ export const DEFAULT_TEXT_COLOR = "#000000";
 export const DEFAULT_BACKGROUND_COLOR = "#0434B1";
 export const SIZE_50 = {
   h1: "16px",
-  h2: "12px",
-  h3: "10px",
+  h2: "14px",
+  h3: "12px",
   text: "8px",
 };
 export const SIZE_70 = {
-  h1: "22.4px",
-  h2: "16.8px",
-  h3: "14px",
-  text: "11.2px",
+  h1: "24px",
+  h2: "20px",
+  h3: "16px",
+  text: "14px",
 };
 export const SIZE_90 = {
-  h1: "28.8px",
-  h2: "21.6px",
+  h1: "35px",
+  h2: "24px",
   h3: "18px",
-  text: "14.4px",
+  text: "16px",
 };
 
 export const SIZE_100 = {
-  h1: "32px",
-  h2: "24px",
-  h3: "20px",
-  text: "16px",
+  h1: "44px",
+  h2: "32px",
+  h3: "24px",
+  text: "20px",
 };
 export const SIZE_110 = {
-  h1: "35.2px",
-  h2: "26.4px",
-  h3: "22px",
-  text: "17px",
+  h1: "54px",
+  h2: "40px",
+  h3: "32px",
+  text: "24px",
 };
 
 export const SIZE_120 = {
-  h1: "38.4px",
-  h2: "28.8px",
-  h3: "24px",
-  text: "19.2px",
+  h1: "62px",
+  h2: "54px",
+  h3: "40px",
+  text: "32px",
 };
 
 export const SIZE_150 = {
-  h1: "48px",
-  h2: "36px",
-  h3: "30px",
-  text: "24px",
+  h1: "68px",
+  h2: "60px",
+  h3: "54px",
+  text: "40px",
 };
 
 export const LOWERCASE = "lowercase";

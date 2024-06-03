@@ -43,7 +43,7 @@ const MALUS_TYPO = [
   CAVEAT,
 ];
 const MALUS_CASE = [LOWERCASE, UPPERCASE];
-const MALUS_SIZES = [SIZE_50, SIZE_150, SIZE_70, SIZE_90];
+const MALUS_SIZES = [SIZE_50, SIZE_150, SIZE_70, SIZE_110, SIZE_120];
 
 const scoreColor = (score: ScoreStatus) => {
   if (score && Object.values(score).some((val) => val === FAIL.KEY)) {
@@ -133,6 +133,7 @@ const SizeController = ({
   setSize: (val: Size) => void;
   size: Size;
 }) => {
+  console.log("size :>> ", size);
   const sizeColor = (selectedSize: Size) => {
     if (selectedSize === size) {
       if (MALUS_SIZES.includes(selectedSize)) return FAIL.COLOR;
@@ -183,6 +184,7 @@ const BlurController = ({
       <Slider
         max={20}
         min={0}
+        defaultValue={6}
         onChange={(blurValue) => setBlurValue(blurValue)}
       />
     </div>

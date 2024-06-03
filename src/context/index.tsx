@@ -3,7 +3,7 @@ import {
   CAPITALIZE_FIRST_LETTER,
   DEFAULT_BACKGROUND_COLOR,
   DEFAULT_TEXT_COLOR,
-  SIZE_100,
+  SIZE_90,
 } from "../constants";
 import { ApiResponse } from "../api";
 
@@ -33,7 +33,7 @@ const INITIAL_STATE = {
   background: DEFAULT_BACKGROUND_COLOR,
   textColor: DEFAULT_TEXT_COLOR,
   typography: "Roboto",
-  size: SIZE_100,
+  size: SIZE_90,
   score: {
     ratio: "2.13",
     status: {
@@ -43,7 +43,7 @@ const INITIAL_STATE = {
       AALarge: "fail",
     },
   },
-  blurValue: 0,
+  blurValue: 6,
   textCase: CAPITALIZE_FIRST_LETTER,
 };
 
