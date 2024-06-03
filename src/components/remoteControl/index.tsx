@@ -175,8 +175,10 @@ const SizeController = ({
 
 const BlurController = ({
   setBlurValue,
+  blurValue,
 }: {
   setBlurValue: (val: number) => void;
+  blurValue: number;
 }) => {
   return (
     <div className="blur">
@@ -184,7 +186,7 @@ const BlurController = ({
       <Slider
         max={20}
         min={0}
-        defaultValue={6}
+        value={blurValue}
         onChange={(blurValue) => setBlurValue(blurValue)}
       />
     </div>
@@ -272,7 +274,7 @@ const ColorPallet = ({
 
 const RemoteControl = () => {
   const { state, setState } = useContext(ThemeContext);
-  const { score, size, typography, textCase } = state;
+  const { score, size, typography, textCase, blurValue } = state;
   return (
     <aside className="aside">
       <Score score={score} />
@@ -287,6 +289,7 @@ const RemoteControl = () => {
         />
         <BlurController
           setBlurValue={(val) => setState({ ...state, blurValue: val })}
+          blurValue={blurValue}
         />
         <CaseController
           setTextCase={(val) => setState({ ...state, textCase: val })}

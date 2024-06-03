@@ -43,7 +43,7 @@ const INITIAL_STATE = {
       AALarge: "fail",
     },
   },
-  blurValue: 6,
+  blurValue: 3,
   textCase: CAPITALIZE_FIRST_LETTER,
 };
 
