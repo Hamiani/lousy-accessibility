@@ -15,7 +15,6 @@ const commonStyle = (textColor: string, size: string, typography: string) => ({
   color: textColor,
   fontSize: size,
   fontFamily: typography,
-  whiteSpace: "pre-line",
 });
 
 const Career = () => {
@@ -178,236 +177,100 @@ const Career = () => {
 
       <Row
         className="pt-2"
-        justify={"space-between"}
+        justify="space-between"
         gutter={[16, 16]}
-        align={"middle"}
+        align="middle"
       >
-        <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
-          <Card
-            hoverable
-            onMouseEnter={() => onMouseEnter(1, 8)}
-            onMouseLeave={() => onMouseLeave()}
-            style={cardStyle(1)}
+        {jobOffers.map((job, index) => (
+          <Col
+            key={`job-${index}`}
+            xs={24}
+            sm={24}
+            md={12}
+            lg={12}
+            xl={6}
+            xxl={6}
+            style={{
+              display: "inline-flex",
+              alignSelf: "stretch",
+            }}
           >
-            <Meta
-              title={
-                <h3
-                  style={{
-                    ...commonStyle(textColor, size.h3, typography),
-                  }}
-                >
-                  {handleCases(textCase, `quality analyst`)}
-                </h3>
-              }
-              description={
-                <p
-                  style={{
-                    ...commonStyle(textColor, size.text, typography),
-                    textAlign: "justify",
-                  }}
-                >
-                  {handleCases(textCase, `Lille, France`)}
-                </p>
-              }
-            />
-            <Divider />
-            <p
-              style={{
-                ...commonStyle(textColor, size.text, typography),
-                textAlign: "justify",
-              }}
+            <Card
+              hoverable
+              onMouseEnter={() => onMouseEnter(index + 1)}
+              onMouseLeave={() => onMouseLeave()}
+              style={cardStyle(index + 1)}
             >
-              {handleCases(textCase, `Tech & DevOps / Lille / CDI`)}
-            </p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
-          <Card
-            hoverable
-            onMouseEnter={() => onMouseEnter(2, 8)}
-            onMouseLeave={() => onMouseLeave()}
-            style={cardStyle(2)}
-          >
-            <Meta
-              title={
-                <h3 style={commonStyle(textColor, size.h3, typography)}>
-                  {handleCases(textCase, `développeur java jee`)}
-                </h3>
-              }
-              description={
-                <p style={commonStyle(textColor, size.text, typography)}>
-                  {handleCases(textCase, `Lille, France`)}
-                </p>
-              }
-            />
-            <Divider />
-            <p style={commonStyle(textColor, size.text, typography)}>
-              {handleCases(textCase, `Tech & DevOps / Lille / CDI`)}
-            </p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
-          <Card
-            hoverable
-            onMouseEnter={() => onMouseEnter(3, 8)}
-            onMouseLeave={() => onMouseLeave()}
-            style={cardStyle(3)}
-          >
-            <Meta
-              title={
-                <h3 style={commonStyle(textColor, size.h3, typography)}>
-                  {handleCases(textCase, `développeur node js`)}
-                </h3>
-              }
-              description={
-                <p style={commonStyle(textColor, size.text, typography)}>
-                  {handleCases(textCase, `Lille, France`)}
-                </p>
-              }
-            />
-            <Divider />
-            <p style={commonStyle(textColor, size.text, typography)}>
-              {handleCases(textCase, `Tech & DevOps / Lille / CDI`)}
-            </p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
-          <Card
-            hoverable
-            onMouseEnter={() => onMouseEnter(4, 8)}
-            onMouseLeave={() => onMouseLeave()}
-            style={cardStyle(4)}
-          >
-            <Meta
-              title={
-                <h3 style={commonStyle(textColor, size.h3, typography)}>
-                  {handleCases(
-                    textCase,
-                    `développeur mobile (Android et/ou IOS)`
-                  )}
-                </h3>
-              }
-              description={
-                <p style={commonStyle(textColor, size.text, typography)}>
-                  {handleCases(textCase, `Lille, France`)}
-                </p>
-              }
-            />
-            <Divider />
-            <p style={commonStyle(textColor, size.text, typography)}>
-              {handleCases(textCase, `Tech & DevOps / Lille / CDI`)}
-            </p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
-          <Card
-            hoverable
-            onMouseEnter={() => onMouseEnter(5, 8)}
-            onMouseLeave={() => onMouseLeave()}
-            style={cardStyle(5)}
-          >
-            <Meta
-              title={
-                <h3 style={commonStyle(textColor, size.h3, typography)}>
-                  {handleCases(textCase, `designer ux/ui`)}
-                </h3>
-              }
-              description={
-                <p style={commonStyle(textColor, size.text, typography)}>
-                  {handleCases(textCase, `Lille, France`)}
-                </p>
-              }
-            />
-            <Divider />
-            <p style={commonStyle(textColor, size.text, typography)}>
-              {handleCases(textCase, `Experience design (UX/UI) / Lille / CDI`)}
-            </p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
-          <Card
-            hoverable
-            onMouseEnter={() => onMouseEnter(6, 8)}
-            onMouseLeave={() => onMouseLeave()}
-            style={cardStyle(6)}
-          >
-            <Meta
-              title={
-                <h3 style={commonStyle(textColor, size.h3, typography)}>
-                  {handleCases(textCase, `scrum master`)}
-                </h3>
-              }
-              description={
-                <p style={commonStyle(textColor, size.text, typography)}>
-                  {handleCases(textCase, `Lille, France`)}
-                </p>
-              }
-            />
-            <Divider />
-            <p style={commonStyle(textColor, size.text, typography)}>
-              {handleCases(
-                textCase,
-                `Scrum Mastering / Facilitaion / Lille/ CDI`
-              )}
-            </p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
-          <Card
-            hoverable
-            onMouseEnter={() => onMouseEnter(7, 8)}
-            onMouseLeave={() => onMouseLeave()}
-            style={cardStyle(7)}
-          >
-            <Meta
-              title={
-                <h3 style={commonStyle(textColor, size.h3, typography)}>
-                  {handleCases(textCase, `product owner`)}
-                </h3>
-              }
-              description={
-                <p style={commonStyle(textColor, size.text, typography)}>
-                  {handleCases(textCase, `Lille, France`)}
-                </p>
-              }
-            />
-            <Divider />
-            <p style={commonStyle(textColor, size.text, typography)}>
-              {handleCases(
-                textCase,
-                `product management & Innovation / Lille/ CDI`
-              )}
-            </p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
-          <Card
-            hoverable
-            onMouseEnter={() => onMouseEnter(8, 8)}
-            onMouseLeave={() => onMouseLeave()}
-            style={cardStyle(8)}
-          >
-            <Meta
-              title={
-                <h3 style={commonStyle(textColor, size.h3, typography)}>
-                  {handleCases(textCase, `ingénieur devops`)}
-                </h3>
-              }
-              description={
-                <p style={commonStyle(textColor, size.text, typography)}>
-                  {handleCases(textCase, `Lille, France`)}
-                </p>
-              }
-            />
-            <Divider />
-            <p style={commonStyle(textColor, size.text, typography)}>
-              {handleCases(textCase, `tech & DevOps/ Lille/ CDI`)}
-            </p>
-          </Card>
-        </Col>
+              <Meta
+                title={
+                  <h3
+                    style={{
+                      ...commonStyle(textColor, size.h3, typography),
+                      whiteSpace: "normal",
+                    }}
+                  >
+                    {job.title.toUpperCase()}
+                  </h3>
+                }
+                description={<p>{job.location}</p>}
+              />
+              <Divider />
+              <p
+                style={{
+                  ...commonStyle(textColor, size.text, typography),
+                  textAlign: "justify",
+                }}
+              >
+                {job.description}
+              </p>
+            </Card>
+          </Col>
+        ))}
       </Row>
     </div>
   );
 };
+const jobOffers = [
+  {
+    title: "quality analyst",
+    location: "Lille, France",
+    description: "Tech & DevOps / Lille / CDI",
+  },
+  {
+    title: "développeur java jee",
+    location: "Lille, France",
+    description: "Tech & DevOps / Lille / CDI",
+  },
+  {
+    title: "développeur node js",
+    location: "Lille, France",
+    description: "Tech & DevOps / Lille / CDI",
+  },
+  {
+    title: "développeur mobile (Android et/ou IOS)",
+    location: "Lille, France",
+    description: "Tech & DevOps / Lille / CDI",
+  },
+  {
+    title: "designer ux/ui",
+    location: "Lille, France",
+    description: "Experience Design (UX/UI) / Lille / CDI",
+  },
+  {
+    title: "scrum master",
+    location: "Lille, France",
+    description: "Scrum Mastering / Facilitation / Lille/ CDI",
+  },
+  {
+    title: "product owner",
+    location: "Lille, France",
+    description: "Product Management & Innovation / Lille/ CDI",
+  },
+  {
+    title: "ingénieur devops",
+    location: "Lille, France",
+    description: "Tech & DevOps/ Lille/ CDI",
+  },
+];
 
 export default Career;

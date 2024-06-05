@@ -1,8 +1,8 @@
 .career {
   padding-left: 9vw !important;
   .ant-card {
-    min-height: 300px;
     border-radius: 20px;
+    width: 100%;
   }
 }
 .office-picture {
