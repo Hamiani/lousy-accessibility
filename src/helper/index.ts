@@ -46,7 +46,7 @@ interface DynamicObject {
 
 export const createDynamicObject = (
   id?: number,
-  length: number = 6
+  length: number = 8
 ): DynamicObject => {
   let obj: DynamicObject = {};
 
