@@ -184,6 +184,9 @@ const BlurController = ({
     <div className="blur">
       <h3>Choix de flou</h3>
       <Slider
+        className={
+          blurValue === 0 ? "success" : blurValue <= 5 ? "warning" : "failure"
+        }
         max={20}
         min={0}
         value={blurValue}

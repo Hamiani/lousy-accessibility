@@ -77,4 +77,31 @@
     font-family: Roboto;
     margin: 0;
   }
+  .success {
+    .ant-slider-step {
+      background-color: rgb(136, 183, 46);
+    }
+    .ant-slider-handle::after {
+      background-color: rgb(136, 183, 46);
+      box-shadow: 0 0 0 2px rgb(136, 183, 46);
+    }
+  }
+  .warning {
+    .ant-slider-step {
+      background-color: #e69a26;
+    }
+    .ant-slider-handle::after {
+      background-color: #e69a26;
+      box-shadow: 0 0 0 2px #e69a26;
+    }
+  }
+  .failure {
+    .ant-slider-step {
+      background-color: #f14732;
+    }
+    .ant-slider-handle::after {
+      background-color: #f14732;
+      box-shadow: 0 0 0 2px #f14732;
+    }
+  }
 }
